@@ -1,0 +1,8 @@
+```shell
+git clone --depth 1 https://github.com/nacos-group/nacos-docker.git
+
+docker-compose -d -f ./standlone-mysql-8.yaml up
+
+# docker run -d -e PREFER_HOST_MODE=ip -e MODE=standalone -e SPRING_DATASOURCE_PLATFORM=mysql -e MYSQL_MASTER_SERVICE_HOST=www.bonelf.com -e MYSQL_MASTER_SERVICE_PORT=3306 -e MYSQL_MASTER_SERVICE_USER=bonelf -e MYSQL_MASTER_SERVICE_PASSWORD=567215 -e MYSQL_MASTER_SERVICE_DB_NAME=bonelf-nacos -e MYSQL_SLAVE_SERVICE_HOST=www.bonelf.com -e MYSQL_SLAVE_SERVICE_PORT=3306 -v /www/server/docker-srv/nacos/logs:/home/nacos/logs -p 8848:8848 --name nacos nacos/nacos-server:1.4.1
+
+```

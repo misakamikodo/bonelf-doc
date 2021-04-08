@@ -1,0 +1,1 @@
+docker run -p 9000:9000 --name minio  -e "MINIO_ACCESS_KEY=admin" -e "MINIO_SECRET_KEY=bonelf@123" -v /www/server/docker-srv/minio/data:/data -v /www/server/docker-srv/minio/config:/root/.minio   minio/minio:RELEASE.2021-03-04T00-53-13Z server /data

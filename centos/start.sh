@@ -1,0 +1,1 @@
+# 懒人一键安装demo级centos

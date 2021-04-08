@@ -1,0 +1,24 @@
+
+      # external_url 'http://gitlab.bonelf.com'
+      external_url 'http://192.168.31.60:11080'
+      # nginx['enable'] = false
+      gitlab_workhorse['listen_network'] = "tcp"
+      itlab_workhorse['listen_addr'] = "172.17.0.1:8088"
+      gitlab_workhorse['auth_backend'] = "http://172.17.0.1:8089"
+      unicorn['listen'] = '172.17.0.1'
+      unicorn['port'] = 8089
+      # web_server['external_users'] = ['www-data']
+      redis['enable'] = false
+      gitlab_rails['redis_host'] = "172.17.0.1"
+      gitlab_rails['redis_port'] = 6379
+      gitlab_rails['redis_password'] = "567215"
+      gitlab_rails['redis_database'] = 10
+      # postgresql['enable'] = false
+      # gitlab_rails['db_adapter'] = "postgresql"
+      # gitlab_rails['db_encoding'] = "utf8"
+      # gitlab_rails['db_host'] = "172.17.0.1"
+      # gitlab_rails['db_port'] = 5432
+      # gitlab_rails['db_username'] = "gitlab"
+      #  gitlab_rails['db_password'] = "567215"
+      # gitlab_rails['db_database'] = "gitlabhq_production"
+      gitlab_rails['time_zone'] = "Asia/Shanghai"

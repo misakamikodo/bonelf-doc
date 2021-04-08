@@ -1,0 +1,11 @@
+[Unit]
+Description=bind-ui Bind DNS Web管理系统
+After=multi-user.target
+
+[Service]
+ExecStart=sh /www/server/bind-dns/start-bindui.sh
+Restart=always
+TasksMax=4915
+
+[Install]
+WantedBy=multi-user.target

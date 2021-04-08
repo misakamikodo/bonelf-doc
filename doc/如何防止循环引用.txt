@@ -1,0 +1,2 @@
+service之间可以 事件驱动调用
+service内只注入mapper，必要再引入其他service
