@@ -1,0 +1,14 @@
+version: "2"
+services:
+  jenkins:
+    image: jenkinsci/blueocean:1.24.7
+    container_name: jenkins-server
+    user: "0"
+    volumes:
+      - /www/server/docker-srv/jenkins/data:/var/jenkins_home
+      # 挂载 jdk、maven、git
+      - /usr/java/jdk1.8.0_121:/data/jdk1.8.0_121:ro
+      - /usr/share/git-core:/data/git:ro
+    ports:
+      - "8599:8080"
+      - "50000:50000"

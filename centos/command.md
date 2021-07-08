@@ -23,6 +23,11 @@ sed -e 4a\\[string] \[file] #在第四行后添加新字符串
 : > \[file] #清空文件
 yum list | grep -i \[name] # 找包
 tee \[file] # 逐行写文件 使用 EOF 命令终止
+
+# 查软件
+rpm -qa git
+# 查目录
+rpm -ql git-2.27.0-1.el8.x86_64
 ```
 
 ##服务

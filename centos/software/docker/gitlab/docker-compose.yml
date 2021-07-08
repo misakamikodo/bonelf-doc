@@ -1,47 +1,49 @@
-web:
-  image: 'gitlab/gitlab-ce:13.10.0-ce.0'
-  container_name: gitlab
-  restart: always
-  hostname: 'gitlab.bonelf.com'
-  environment:
-    TZ: "Asia/Shanghai"
-    GITLAB_OMNIBUS_CONFIG: |
-      external_url 'http://gitlab.bonelf.com'
-      # external_url 'http://192.168.31.60:11080'
-      gitlab_rails['time_zone'] = "Asia/Shanghai"
-      # nginx['enable'] = false
-      # web_server['external_users'] = ['www-data']
-      redis['enable'] = false
-      gitlab_rails['redis_host'] = "172.17.0.1"
-      gitlab_rails['redis_port'] = 6379
-      gitlab_rails['redis_password'] = "567215"
-      gitlab_rails['redis_database'] = 10
-      postgresql['enable'] = false
-      gitlab_rails['db_adapter'] = "postgresql"
-      gitlab_rails['db_encoding'] = "utf8"
-      gitlab_rails['db_host'] = "172.17.0.1"
-      gitlab_rails['db_port'] = 5432
-      gitlab_rails['db_username'] = "gitlab"
-      gitlab_rails['db_password'] = "567215"
-      gitlab_rails['db_database'] = "gitlabhq_production"
+version: "2"
+services:
+  web:
+    image: 'gitlab/gitlab-ce:13.10.0-ce.0'
+    container_name: gitlab
+    restart: always
+    hostname: 'gitlab.bonelf.com'
+    environment:
+      TZ: "Asia/Shanghai"
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab.bonelf.com'
+        # external_url 'http://192.168.31.60:11080'
+        gitlab_rails['time_zone'] = "Asia/Shanghai"
+        # nginx['enable'] = false
+        # web_server['external_users'] = ['www-data']
+        redis['enable'] = false
+        gitlab_rails['redis_host'] = "172.17.0.1"
+        gitlab_rails['redis_port'] = 6379
+        gitlab_rails['redis_password'] = "567215"
+        gitlab_rails['redis_database'] = 10
+        postgresql['enable'] = false
+        gitlab_rails['db_adapter'] = "postgresql"
+        gitlab_rails['db_encoding'] = "utf8"
+        gitlab_rails['db_host'] = "172.17.0.1"
+        gitlab_rails['db_port'] = 5432
+        gitlab_rails['db_username'] = "gitlab"
+        gitlab_rails['db_password'] = "567215"
+        gitlab_rails['db_database'] = "gitlabhq_production"
 
-      # gitlab_rails['smtp_enable'] = true
-      # gitlab_rails['smtp_address'] = "smtp.ym.163.com"
-      # gitlab_rails['smtp_port'] = 465
-      # gitlab_rails['smtp_user_name'] = "me@chenchengyuan.com"
-      # gitlab_rails['smtp_password'] = "???"
-      # gitlab_rails['smtp_domain'] = "ym.163.com"
-      # gitlab_rails['smtp_authentication'] = "login"
-      # gitlab_rails['smtp_enable_starttls_auto'] = true
-      # gitlab_rails['smtp_tls'] = true
-      # gitlab_rails['gitlab_email_from'] = 'bonelf'
-      # Add any other gitlab.rb configuration here, each on its own line
-  ports:
-    - '11080:80'
-    - '11443:443'
-    - '11022:22'
-  volumes:
-    - '/www/server/docker-srv/gitlab/config:/etc/gitlab'
-    - '/www/server/docker-srv/gitlab/logs:/var/log/gitlab'
-    - '/www/server/docker-srv/gitlab/data:/var/opt/gitlab'
-#    - '/www/wwwroot/gitlab.bonelf.com:/opt/gitlab/embedded/service/gitlab-rails/public'
+        # gitlab_rails['smtp_enable'] = true
+        # gitlab_rails['smtp_address'] = "smtp.ym.163.com"
+        # gitlab_rails['smtp_port'] = 465
+        # gitlab_rails['smtp_user_name'] = "me@chenchengyuan.com"
+        # gitlab_rails['smtp_password'] = "???"
+        # gitlab_rails['smtp_domain'] = "ym.163.com"
+        # gitlab_rails['smtp_authentication'] = "login"
+        # gitlab_rails['smtp_enable_starttls_auto'] = true
+        # gitlab_rails['smtp_tls'] = true
+        # gitlab_rails['gitlab_email_from'] = 'bonelf'
+        # Add any other gitlab.rb configuration here, each on its own line
+    ports:
+      - '11080:80'
+      - '11443:443'
+      - '11022:22'
+    volumes:
+      - '/www/server/docker-srv/gitlab/config:/etc/gitlab'
+      - '/www/server/docker-srv/gitlab/logs:/var/log/gitlab'
+      - '/www/server/docker-srv/gitlab/data:/var/opt/gitlab'
+  #    - '/www/wwwroot/gitlab.bonelf.com:/opt/gitlab/embedded/service/gitlab-rails/public'

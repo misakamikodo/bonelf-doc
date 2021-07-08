@@ -1,0 +1,36 @@
+version: '3'
+services:
+  seata-server:
+    # restart: always
+    image: seataio/seata-server:1.4.0
+    environment:
+      - SEATA_IP=192.168.31.60
+      - STORE_MODE=db
+      - SEATA_CONFIG_NAME=file:/seata-server/resources/registry
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+#      resources:
+#        limits:
+#          cpus: '0.5'
+#          memory: 1024M
+#        reservations:
+#          cpus: '1'
+#          memory: 2408M
+    volumes:
+      - /www/server/docker-srv/seata/seata-config:/seata-server/resources
+    ports:
+      - "8091:8091"
+    container_name: "seata"
+    networks:
+      - back-up
+networks:
+  back-up:
+    driver: bridge

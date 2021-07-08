@@ -1,6 +1,7 @@
 idea必要设置：
 1 注释格式修改：
-setting->editor->code style->java->code generation->右下角 comment code;取消勾选 Line comment at first line 勾选 Add a space at comment start
+setting->editor->code style->java->code generation->右下角 comment code;
+                    取消勾选 Line comment at first line 勾选 Add a space at comment start(xml同理)
                                  ->spaces->other->取消勾选after type cast
                                  ->tabs and indents->勾选use tab character
 
@@ -65,5 +66,7 @@ groovyScript("Math.abs(new Random().nextLong())");
 
 Q:
 idea解决Command line is too long. Shorten command line for ServiceStarter or also for Application报错
-找到 .idea\workspace.xml；如果找不到.idea是就更好显示目录，就能找到。
+1 找到 .idea\workspace.xml；如果找不到.idea是就更好显示目录，就能找到。
 找到<component name="PropertiesComponent">，在里面添加<property name="dynamic.classpath" value="true" />即可
+
+2 或者：启动配置项 -> shorten command line 选项选择 classpath file 或 java manifest 选项 -> 重新启动工程运行
