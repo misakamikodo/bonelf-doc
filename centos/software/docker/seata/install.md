@@ -1,6 +1,12 @@
 复制配置文件到目录
 ```shell
-docker cp seata:/seata-server/resources  ~/seata-config
+docker rm seata
+
+docker run --name seata -p 8091:8091 -d  seataio/seata-server:1.4.0
+
+docker cp seata:/seata-server/resources/  ./seata-config/
+
+docker stop seata && docker rm seata
 ```
 替换 register.conf
 
