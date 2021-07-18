@@ -4,9 +4,11 @@ docker rm seata
 
 docker run --name seata -p 8091:8091 -d  seataio/seata-server:1.4.0
 
-docker cp seata:/seata-server/resources/  ./seata-config/
+docker cp seata:/seata-server/resources/  ./seata-config  #（应该时seata-config目录下有register.conf效果，吧resources目录里的移动出来）
 
 docker stop seata && docker rm seata
+
+docker-compose up -d
 ```
 替换 register.conf
 

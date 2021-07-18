@@ -1,0 +1,50 @@
+version: "3.2"
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.3
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - TZ="Asia/Shanghai"
+    ports:
+      - 9200:9200
+    networks:
+      - "elk-net"
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.9.3
+    container_name: filebeat
+    volumes:
+      - type: bind
+        source: "./filebeat/2018.log"
+        target: "/2018.log"
+      - type: bind
+        source: "./filebeat/filebeat.yml"
+        target: "/usr/share/filebeat/filebeat.yml"
+    networks:
+      - "elk-net"
+    depends_on:
+      - "logstash"
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.9.3
+    container_name: logstash
+    environment:
+      - TZ="Asia/Shanghai"
+    volumes:
+      - type: bind
+        source: "./logstash/logstash.conf"
+        target: "/usr/share/logstash/pipeline/logstash.conf"
+    ports:
+      - 5044:5044
+    networks:
+      - "elk-net"
+  kibana:
+    image: kibana:7.9.3
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    networks:
+      - "elk-net"
+networks:
+  elk-net:
