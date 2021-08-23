@@ -17,3 +17,11 @@ pom里添加 docker 插件
 后 idea->services窗口->+ run configuration type->docker->右键images里 create container 
 
 run-option: -p 8800:8800 端口映射 --network bonelfnet 设置一个网段(docker network create bonelfnet)
+
+##删除 空悬镜像
+```shell
+$ docker rmi $(docker images -f "dangling=true" -q)
+
+# 检查一下，已经没有<none>的镜像了。
+$ docker images | grep 'none'
+```
