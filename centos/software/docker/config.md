@@ -16,7 +16,20 @@ pom里添加 docker 插件
 
 后 idea->services窗口->+ run configuration type->docker->右键images里 create container 
 
-run-option: -p 8800:8800 端口映射 --network bonelfnet 设置一个网段(docker network create bonelfnet)
+run-option: 
+-p 8800:8800 端口映射 
+--network bonelfnet 设置一个网段(docker network create bonelfnet)
+-v /.../XXX.jar:/XXX.jar 创建jar包映射，更新jar包来更新
+
+如果想执行mvn deploy 注意需要：
+
+-DskipDockerBuild 跳过 build 镜像
+
+-DskipDockerTag 跳过 tag 镜像
+
+-DskipDockerPush 跳过 push 镜像
+
+-DskipDocker 跳过整个阶段
 
 ##删除 空悬镜像
 ```shell
