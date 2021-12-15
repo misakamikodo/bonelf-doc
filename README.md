@@ -1,5 +1,7 @@
 # bonelf-doc
 
+版本号.特性号.补丁号
+
 bonelf-doc bonelf 文件
 
 使用\[XX]作为占位符

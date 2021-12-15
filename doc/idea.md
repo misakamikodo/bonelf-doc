@@ -1,6 +1,6 @@
 ## idea必要设置：
 1 注释格式修改：
-setting->editor->code style->java->code generation->右下角 comment code;
+setting->editor->code style->java->code generation->右下角 comment code
                     取消勾选 Line comment at first line 勾选 Add a space at comment start(xml同理)
                                  ->spaces->other->取消勾选after type cast
                                  ->tabs and indents->勾选use tab character
