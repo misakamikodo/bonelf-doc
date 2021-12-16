@@ -50,17 +50,18 @@ Lombok
 MybatisCodeHelperPro
 Statistic
 Ini
+codota ai autocomplete
 
 camelCase(type)
 
 -)
-snakeCase(substringBefore(fileName(), ".java"));
-groovyScript("_1.toUpperCase()",snakeCase(substringBefore(fileName(), ".java")));
-groovyScript("Math.abs(new Random().nextLong())");
+snakeCase(substringBefore(fileName(), ".java")); 获取文件名
+groovyScript("_1.toUpperCase()",snakeCase(substringBefore(fileName(), ".java"))); 获取文件名
+groovyScript("Math.abs(new Random().nextLong())"); 随机long
 
 5 setting->editor->File And Code Template->Includes->File Header  可以新建类自动加注释：
 /**
- * @author ccy
+ * @author bonelf
  * @date ${DATE} ${TIME}
  */
    
