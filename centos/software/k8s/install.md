@@ -325,6 +325,5 @@ node.kubernetes.io/network-unavailable：节点网络不可用。
 node.kubernetes.io/unschedulable: 节点不可调度。
 node.cloudprovider.kubernetes.io/uninitialized：如果 kubelet 启动时指定了一个 "外部" 云平台驱动， 它将给当前节点添加一个污点将其标志为不可用。在 cloud-controller-manager 的一个控制器初始化这个节点后，kubelet 将删除这个污点。
 
-```shell
-systemctl status kubelet
-```
+#备注
+systemctl status kubelet 出现了10.k??.conf的类似报错的信息，不要管
