@@ -298,8 +298,21 @@ kubectl delete service kubernetes-dashboard --namespace=kubernetes-dashboard
 
 kubectl apply -f 包中两个yaml
 
+kubectl get secret -n kubernetes-dashboard |grep admin|awk '{print $1}'
+dashboard-admin-token-72fxb
+kubectl describe secret dashboard-admin-token-72fxb -n kubernetes-dashboard|grep '^token'|awk '{print $2}'
+
 #查错误原因
 kubectl describe pod kubernetes-dashboard-xxx(pod name) -n kubernetes-dashboard
+```
+
+增加用户：
+```shell
+kubectl create namespace bonelf
+kubectl create serviceaccount bonelf-admin -n bonelf
+kubectl create rolebinding bonelf-admin -n bonelf --clusterrole=cluster-admin --serviceaccount=bonelf:bonelf-admin
+
+kubectl get secret -n bonelf
 ```
 
 X node(s) had taint {node.kubernetes.io/not-ready: }, that the pod didn't tolerate
