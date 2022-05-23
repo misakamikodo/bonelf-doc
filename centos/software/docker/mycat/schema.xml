@@ -3,6 +3,7 @@
 <mycat:schema xmlns:mycat="http://io.mycat/">
 
     <schema name="bonelf" checkSQLschema="false" sqlMaxLimit="100">
+        <!--SELECT * FROM bnf_test-->
         <table
                 name="bnf_test"
                 dataNode="dn1,dn2"
