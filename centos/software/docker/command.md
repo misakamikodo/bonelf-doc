@@ -4,7 +4,7 @@ docker rmi
 docker rm 
 docker run
 docker stop
-docker ps -a
+docker ps -a  # -a查所有 不加查启动的
 docker run -d --name= XX
 docker update \[name] --restart=always
 docker logs -f -t --tail 20 mqbroker-n0
