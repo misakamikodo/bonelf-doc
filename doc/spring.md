@@ -1,0 +1,3 @@
+打包jar运行出现循环依赖问题解决：被引用方(报错的)添加dependOn引用方
+
+使用@WebFilter注解和FilterChain bean注入，后者需要添加setMatchAfter(true)实现过滤器顺序和前者一样处于后方（但是会在Tomcat过滤器后）
